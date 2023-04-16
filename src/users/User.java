@@ -1,8 +1,13 @@
 package users;
 
-public abstract class User {
+public abstract class User implements Comparable<User> {
     protected String name;
     protected String pass;
+
+    public User(String name, String pass) {
+        this.name = name;
+        this.pass = pass;
+    }
 
     public boolean cambiarPass(String pass){
         if (pass.length() < 8) {
@@ -18,4 +23,13 @@ public abstract class User {
     }
 
     public abstract boolean permisosAdmin();
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public int compareTo(User o) {
+        return name.compareTo(o.getName());
+    }
 }
