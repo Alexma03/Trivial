@@ -18,5 +18,12 @@ public class Partida {
         return this.puntuacion;
     }
 
-
+    @Override
+    public String toString() {
+        return "Partida{" +
+                "date = " + date +
+                ", puntuacion = " + puntuacion +
+                ", player = " + player +
+                '}';
+    }
 }

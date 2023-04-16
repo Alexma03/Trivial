@@ -18,10 +18,16 @@ public class Pregunta {
     }
 
     public String getOpcionCorrecta() {
-        return null;
+        String correcta = "";
+        for (Opcion opcion : opciones) {
+            if (opcion.isCorrecta()) {
+                correcta = opcion.getEnunciado();
+            }
+        }
+        return correcta;
     }
 
     public boolean esCorrecta(int indice) {
-        return false;
+        return opciones[indice].isCorrecta();
     }
 }

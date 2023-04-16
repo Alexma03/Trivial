@@ -1,6 +1,8 @@
 package users;
 
-public abstract class User implements Comparable<User> {
+import java.io.Serializable;
+
+public abstract class User implements Comparable<User>, Serializable {
     protected String name;
     protected String pass;
 
@@ -31,5 +33,9 @@ public abstract class User implements Comparable<User> {
     @Override
     public int compareTo(User o) {
         return name.compareTo(o.getName());
+    }
+
+    public String getPass() {
+        return pass;
     }
 }
