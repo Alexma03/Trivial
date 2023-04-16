@@ -17,6 +17,10 @@ public class Pregunta {
         return opciones;
     }
 
+    /**
+     * Método que devuelve la opción correcta de la pregunta
+     * @return String correcta
+     */
     public String getOpcionCorrecta() {
         String correcta = "";
         for (Opcion opcion : opciones) {

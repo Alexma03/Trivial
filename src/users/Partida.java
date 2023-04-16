@@ -18,6 +18,10 @@ public class Partida {
         return this.puntuacion;
     }
 
+    public int getPuntuacion() {
+        return puntuacion;
+    }
+
     @Override
     public String toString() {
         return "Partida{" +

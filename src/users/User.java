@@ -11,6 +11,11 @@ public abstract class User implements Comparable<User>, Serializable {
         this.pass = pass;
     }
 
+    /**
+     * Cambia la contraseña del usuario
+     * @param pass contraseña nueva
+     * @return true si la contraseña es válida y se cambia, false si no es válida
+     */
     public boolean cambiarPass(String pass){
         if (pass.length() < 8) {
             return false;

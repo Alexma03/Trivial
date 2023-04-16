@@ -7,6 +7,9 @@ import users.User;
 import java.util.Collections;
 
 public class TrivialAdmin {
+    /**
+     * Método que muestra las partidas jugadas y los usuarios registrados
+     */
     public void administrar() {
         //Recorre el arraylist de partidas y muestra todas por pantalla
         for (String partida : GestionaFicheros.leePartidas()) {

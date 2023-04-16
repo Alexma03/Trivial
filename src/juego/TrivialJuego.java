@@ -18,8 +18,11 @@ public class TrivialJuego {
         this.partida = partida;
     }
 
+    /**
+     * Método que inicia el juego
+     */
     public void jugar() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i <= 5; i++) {
             Pregunta pregunta = preguntas.get(i);
             System.out.println(pregunta.getPregunta());
             for (int j = 0; j < 4; j++) {
@@ -32,11 +35,10 @@ public class TrivialJuego {
                 partida.sumarPunto(1);
                 System.out.println("Respuesta correcta");
             } else {
-                //muestra la respuesta correcta
                 System.out.println("La respuesta correcta es: " + pregunta.getOpcionCorrecta());
             }
         }
-        //guardar la partida en el fichero
+        System.out.println("Tu puntuación es: " + partida.getPuntuacion());
         GestionaFicheros.guardaPartida(partida);
     }
 

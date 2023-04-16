@@ -1,0 +1,1 @@
+Partida{date = Sun Apr 16 21:59:43 CEST 2023, puntuacion = 4, player = Player{name = 'alex'}}

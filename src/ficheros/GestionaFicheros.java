@@ -12,10 +12,14 @@ import java.util.Collections;
 
 
 public class GestionaFicheros {
-    private static final File fileUser = new File("C:\\Users\\jandr\\Proyectos\\Java\\Trivial\\src\\files\\user.dat");
-    private static final File filePreguntas = new File("C:\\Users\\jandr\\Proyectos\\Java\\Trivial\\src\\files\\preguntas.txt");
-    private static final File filePartidas = new File("C:\\Users\\jandr\\Proyectos\\Java\\Trivial\\src\\files\\partidas.txt");
+    private static final File fileUser = new File("src/files/user.dat");
+    private static final File filePreguntas = new File("src/files/preguntas.txt");
+    private static final File filePartidas = new File("src/files/partidas.txt");
 
+    /**
+     * Método que carga los usuarios del fichero user.dat
+     * @return Arraylist<User>
+     */
     public static ArrayList<User> cargaUsers() {
         ObjectInputStream ois = null;
         FileInputStream fis = null;
@@ -47,6 +51,10 @@ public class GestionaFicheros {
         return userArrayList;
     }
 
+    /**
+     * Método que guarda los usuarios en el fichero user.dat
+     * @param users ArrayList<User>
+     */
     public static void guardaUsers(ArrayList<User> users) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
@@ -74,6 +82,10 @@ public class GestionaFicheros {
         }
     }
 
+    /**
+     * Método que carga las preguntas del fichero preguntas.txt
+     * @return ArrayList<Pregunta>
+     */
     public static ArrayList<Pregunta> cargaPreguntas() {
         ArrayList<Pregunta> preguntas = new ArrayList<>();
         try {
@@ -104,6 +116,10 @@ public class GestionaFicheros {
         return preguntas;
     }
 
+    /**
+     * Método que guarda las partidas en el fichero partidas.txt
+     * @param partida Partida
+     */
     public static void guardaPartida(Partida partida) {
         try {
             FileWriter file = new FileWriter(filePartidas, true);
@@ -115,6 +131,10 @@ public class GestionaFicheros {
         }
     }
 
+    /**
+     * Método que lee las partidas del fichero partidas.txt
+     * @return ArrayList<String>
+     */
     public static ArrayList<String> leePartidas() {
         ArrayList<String> partidas = new ArrayList<>();
         try {
