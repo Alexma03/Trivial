@@ -1,8 +1,15 @@
 package users;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.io.Serializable;
 
+@Entity
+@NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")
 public abstract class User implements Comparable<User>, Serializable {
+
+    @Id
     protected String name;
     protected String pass;
 
@@ -10,6 +17,8 @@ public abstract class User implements Comparable<User>, Serializable {
         this.name = name;
         this.pass = pass;
     }
+
+    public User() {}
 
     /**
      * Cambia la contraseña del usuario
