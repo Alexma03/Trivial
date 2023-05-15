@@ -2,14 +2,16 @@ package dao;
 
 import users.User;
 
-import java.util.List;
-
-
 public interface UserDao {
-    User read(String username);
-    void create(User user);
-    void update(User user);
-    void delete(User name);
-    List<User> findAll();
-    List<User> findByName(String name);
+    void create(users.User usuario);
+
+    void update(users.User usuario);
+
+    void delete(users.User usuario);
+
+    users.User findByName(String name);
+
+    users.User read(User usuario);
+
+    java.util.List findAll();
 }

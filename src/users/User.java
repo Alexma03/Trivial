@@ -1,11 +1,12 @@
 package users;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import jdk.jfr.Name;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="users")
 @NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name")
 public abstract class User implements Comparable<User>, Serializable {
 
