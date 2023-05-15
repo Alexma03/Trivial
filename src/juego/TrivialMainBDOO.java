@@ -18,7 +18,7 @@ import javax.persistence.TypedQuery;
 
 public class TrivialMainBDOO {
     private static final UserDAOImpl userDAO = new UserDAOImpl();
-    private static List<User> users = new ArrayList<>();
+    public static List<User> users = new ArrayList<>();
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
