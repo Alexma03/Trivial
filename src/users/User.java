@@ -11,7 +11,9 @@ import java.io.Serializable;
 public abstract class User implements Comparable<User>, Serializable {
 
     @Id
+    @Column(name="name")
     protected String name;
+    @Column(name="pass")
     protected String pass;
 
     public User(String name, String pass) {

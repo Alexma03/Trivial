@@ -126,8 +126,8 @@ public class TrivialMain {
      * @return true si existe, false si no existe
      */
     private static boolean existName(String name) {
-        for (int i = 0; i < GestionaFicheros.cargaUsers().size(); i++) {
-            if (GestionaFicheros.cargaUsers().get(i).getName().equals(name)) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getName().equals(name)) {
                 return true;
             }
         }
