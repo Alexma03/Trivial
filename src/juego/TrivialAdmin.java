@@ -16,9 +16,9 @@ public class TrivialAdmin {
             System.out.println(partida);
         }
         System.out.println("Partidas jugadas: " + GestionaFicheros.leePartidas().size());
-        Collections.sort(GestionaFicheros.cargaUsers());
-        System.out.println("Usuarios registrados: " + GestionaFicheros.cargaUsers().size());
-        for (User user : GestionaFicheros.cargaUsers()) {
+        Collections.sort(TrivialMainBDOO.users);
+        System.out.println("Usuarios registrados: " + TrivialMainBDOO.users.size());
+        for (User user : TrivialMainBDOO.users) {
             System.out.println(user.getName());
         }
     }
