@@ -122,12 +122,15 @@ public class GestionaFicheros {
      */
     public static void guardaPartida(Partida partida) {
         try {
-            FileWriter file = new FileWriter(filePartidas, true);
-            BufferedWriter out = new BufferedWriter(file);
-            out.write(partida.toString());
-            out.close();
+            if (!filePartidas.exists()) {
+                filePartidas.createNewFile();
+            }
+            BufferedWriter bw = new BufferedWriter(new FileWriter(filePartidas, true));
+            bw.write(partida.toString());
+            bw.newLine();
+            bw.close();
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

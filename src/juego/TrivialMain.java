@@ -10,7 +10,7 @@ import users.User;
 import java.util.*;
 
 public class TrivialMain {
-    private ArrayList<User> users;
+    private static ArrayList<User> users;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -126,8 +126,8 @@ public class TrivialMain {
      * @return true si existe, false si no existe
      */
     private static boolean existName(String name) {
-        for (int i = 0; i < GestionaFicheros.cargaUsers().size(); i++) {
-            if (GestionaFicheros.cargaUsers().get(i).getName().equals(name)) {
+        for (int i = 0; i < users.size(); i++) {
+            if (users.get(i).getName().equals(name)) {
                 return true;
             }
         }
@@ -141,8 +141,8 @@ public class TrivialMain {
      * @return true si existe, false si no existe
      */
     private static boolean existUser(String name, String pass) {
-        for (int i = 0; i < GestionaFicheros.cargaUsers().size(); i++) {
-            if (GestionaFicheros.cargaUsers().get(i).getPass().equals(pass) && GestionaFicheros.cargaUsers().get(i).getName().equals(name)) {
+        for (User user : users) {
+            if (user.getPass().equals(pass) && user.getName().equals(name)) {
                 return true;
             }
         }
@@ -156,9 +156,9 @@ public class TrivialMain {
      * @return true si tiene permisos, false si no tiene permisos
      */
     private static boolean tieneperimsos(String name, String pass) {
-        for (int i = 0; i < GestionaFicheros.cargaUsers().size(); i++) {
-            if (GestionaFicheros.cargaUsers().get(i).getPass().equals(pass) && GestionaFicheros.cargaUsers().get(i).getName().equals(name)) {
-                if (GestionaFicheros.cargaUsers().get(i).permisosAdmin()) {
+        for (User user : users) {
+            if (user.getPass().equals(pass) && user.getName().equals(name)) {
+                if (user.permisosAdmin()) {
                     return true;
                 }
             }

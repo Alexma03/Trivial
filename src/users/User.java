@@ -1,15 +1,27 @@
 package users;
 
+import jdk.jfr.Name;
+
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
+@Table(name="users") // Nombre de la tabla en la base de datos
+@NamedQuery(name = "User.findByName", query = "SELECT u FROM User u WHERE u.name = :name") // Consulta JPQL para buscar un usuario por su nombre
 public abstract class User implements Comparable<User>, Serializable {
+
+    @Id // Indica que es la clave primaria
+    @Column(name="name")
     protected String name;
+    @Column(name="pass")
     protected String pass;
 
     public User(String name, String pass) {
         this.name = name;
         this.pass = pass;
     }
+
+    public User() {} // Constructor vacío para que funcione JPA
 
     /**
      * Cambia la contraseña del usuario

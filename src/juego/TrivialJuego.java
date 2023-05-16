@@ -24,6 +24,7 @@ public class TrivialJuego {
      * Método que inicia el juego
      */
     public void jugar() {
+        partida = new Partida(Date.from(java.time.Instant.now()), 0, player);
         preguntas = GestionaFicheros.cargaPreguntas();
         shuffle(preguntas);
         for (int i = 0; i < 5; i++) {
@@ -35,7 +36,13 @@ public class TrivialJuego {
             }
             System.out.println("Elige una opción: ");
             Scanner sc = new Scanner(System.in);
-            int opcion = sc.nextInt();
+            int opcion = sc.hasNextInt() ? sc.nextInt() : -1;
+            if (opcion < 0 || opcion > 3) {
+                System.out.println("Opción incorrecta");
+                i--;
+                continue;
+            }
+
             if (pregunta.esCorrecta(opcion)) {
                 partida.sumarPunto(1);
                 System.out.println("Respuesta correcta");
