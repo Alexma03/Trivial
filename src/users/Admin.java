@@ -23,4 +23,12 @@ public class Admin extends User implements Serializable {
     public int compareTo(User o) {
         return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Admin{" +
+                "name='" + name + '\'' +
+                ", pass='" + pass + '\'' +
+                '}';
+    }
 }

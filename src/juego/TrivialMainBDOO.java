@@ -60,8 +60,16 @@ public class TrivialMainBDOO {
     private static void registerPlayer(Scanner sc) {
         System.out.println("Introduce tu nombre de usuario");
         String nombreP = sc.next();
+        if (existName(nombreP)) {
+            System.out.println("El nombre de usuario ya existe");
+            return;
+        }
         System.out.println("Introduce tu contraseña");
         String passwordP = sc.next();
+        if (passwordP.length() < 8) {
+            System.out.println("La contraseña debe tener al menos 8 caracteres");
+            return;
+        }
         System.out.println("Repite tu contraseña");
         String password2P = sc.next();
         if (!Objects.equals(passwordP, password2P)) {
@@ -72,6 +80,8 @@ public class TrivialMainBDOO {
         if (users.contains(user)) {
             System.out.println("El player ya existe");
             return;
+        } else if (existName(nombreP)) {
+            System.out.println("El nombre de usuario ya existe");
         } else {
             Player player = new Player(nombreP, passwordP);
             users.add(player);
@@ -85,8 +95,16 @@ public class TrivialMainBDOO {
         // Utiliza el DAO de User para almacenar el nuevo usuario en la BDOO
         System.out.println("Introduce tu nombre de usuario");
         String nombreA = sc.next();
+        if (existName(nombreA)) {
+            System.out.println("El nombre de usuario ya existe");
+            return;
+        }
         System.out.println("Introduce tu contraseña");
         String passwordA = sc.next();
+        if (passwordA.length() < 8) {
+            System.out.println("La contraseña debe tener al menos 8 caracteres");
+            return;
+        }
         System.out.println("Repite tu contraseña");
         String password2A = sc.next();
         if (!Objects.equals(passwordA, password2A)) {

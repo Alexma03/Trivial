@@ -4,6 +4,7 @@ import ficheros.GestionaFicheros;
 import users.Partida;
 import users.User;
 
+import java.io.IOException;
 import java.util.Collections;
 
 public class TrivialAdmin {
@@ -11,13 +12,11 @@ public class TrivialAdmin {
      * Método que muestra las partidas jugadas y los usuarios registrados
      */
     public void administrar() {
-        //Recorre el arraylist de partidas y muestra todas por pantalla
+        System.out.println("Partidas jugadas: ");
         for (String partida : GestionaFicheros.leePartidas()) {
             System.out.println(partida);
         }
-        System.out.println("Partidas jugadas: " + GestionaFicheros.leePartidas().size());
-        Collections.sort(TrivialMainBDOO.users);
-        System.out.println("Usuarios registrados: " + TrivialMainBDOO.users.size());
+        System.out.println("Usuarios registrados: ");
         for (User user : TrivialMainBDOO.users) {
             System.out.println(user.getName());
         }
