@@ -10,10 +10,8 @@ import users.Admin;
 import users.Partida;
 import users.Player;
 import users.User;
-import dao.UserDao;
 
 import javax.persistence.EntityManager;
-import javax.persistence.NamedQuery;
 import javax.persistence.TypedQuery;
 
 public class TrivialMainBDOO {
