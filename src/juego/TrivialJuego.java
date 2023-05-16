@@ -7,8 +7,10 @@ import users.Player;
 
 import java.util.*;
 
+import static java.util.Collections.shuffle;
+
 public class TrivialJuego {
-    private final ArrayList<Pregunta> preguntas;
+    private ArrayList<Pregunta> preguntas;
     private final Player player;
     private Partida partida;
 
@@ -22,11 +24,14 @@ public class TrivialJuego {
      * Método que inicia el juego
      */
     public void jugar() {
-        for (int i = 0; i <= 5; i++) {
+        preguntas = GestionaFicheros.cargaPreguntas();
+        shuffle(preguntas);
+        for (int i = 0; i < 5; i++) {
             Pregunta pregunta = preguntas.get(i);
-            System.out.println(pregunta.getPregunta());
-            for (int j = 0; j < 4; j++) {
-                System.out.println(j + ". " + pregunta.getOpciones()[j]);
+            shuffle(Arrays.asList(pregunta.getOpciones()));
+            System.out.println(preguntas.get(i).getPregunta());
+            for (int j = 0; j < preguntas.get(i).getOpciones().length; j++) {
+                System.out.println(j + ". " + preguntas.get(i).getOpciones()[j]);
             }
             System.out.println("Elige una opción: ");
             Scanner sc = new Scanner(System.in);

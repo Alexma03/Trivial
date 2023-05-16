@@ -10,9 +10,12 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.Random;
 import java.util.concurrent.Semaphore;
+
+import static java.util.Collections.shuffle;
 
 public class ServidorTrivial {
     private static ArrayList<Pregunta> preguntas;
@@ -85,9 +88,11 @@ class HiloJugador implements Runnable {
                 int respuesta = Integer.parseInt(RecibirMensaje.recibir(socket));
                 if (pregunta.getOpciones()[respuesta - 1].isCorrecta()) {
                     aciertos++;
+                    EnviarMensaje.enviar(socket, "1");
                     EnviarMensaje.enviar(socket, "¡Respuesta correcta!");
                 } else {
-                    EnviarMensaje.enviar(socket, "Respuesta incorrecta. La respuesta correcta era la opción " + (pregunta.getOpcionCorrecta() + 1) + ".");
+                    EnviarMensaje.enviar(socket, "0");
+                    EnviarMensaje.enviar(socket, "Respuesta incorrecta. La respuesta correcta era la opción " + (pregunta.getOpcionCorrecta()));
                 }
             }
             EnviarMensaje.enviar(socket, "Has obtenido " + aciertos + " aciertos.");

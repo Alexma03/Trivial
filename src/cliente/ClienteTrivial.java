@@ -24,10 +24,16 @@ public class ClienteTrivial {
         System.out.println(bienvenida);
         for (int i = 0; i < 5; i++) {
             String preguntaActual = RecibirMensaje.recibir(socket); // recibir pregunta
+            String opciones = RecibirMensaje.recibir(socket);
+            opciones += "\n" + RecibirMensaje.recibir(socket);
+            opciones += "\n" +  RecibirMensaje.recibir(socket);
+            opciones += "\n" +  RecibirMensaje.recibir(socket);
             System.out.println(preguntaActual); // mostrar pregunta
+            System.out.println(opciones); // mostrar opciones
             String respuestaActual = leerRespuestaDesdeConsola(); // leer respuesta desde la consola
             EnviarMensaje.enviar(socket, respuestaActual); // enviar respuesta al servidor
-            int puntuacion = Integer.parseInt(RecibirMensaje.recibir(socket)); // recibir la puntuación obtenida
+            String resultado = RecibirMensaje.recibir(socket); // recibir la puntuación obtenida
+            int puntuacion = Integer.parseInt(resultado);
             puntuacionTotal += puntuacion; // actualizar la puntuación total
             System.out.println("Respuesta: " + (puntuacion == 1 ? "Correcto!" : "Incorrecto.") +
                     " Puntuación: " + puntuacion + "\n"); // mostrar resultado
